@@ -8,11 +8,9 @@ Windows PC でこのリポジトリの設定を各アプリの設定ディレク
 - PowerShell が使えること
 - シンボリックリンクを作成できること
 
-Windows では、Developer Mode が無効な場合、シンボリックリンク作成に管理者権限が必要です。
-
 ## リポジトリを配置する
 
-例として、ホームディレクトリ直下に `dotfiles` を置きます。
+ホームディレクトリ直下に `dotfiles` を置きます。
 
 ```powershell
 cd $env:USERPROFILE
@@ -63,3 +61,21 @@ powershell -ExecutionPolicy Bypass -File $env:USERPROFILE\dotfiles\install.ps1
 ```powershell
 powershell -ExecutionPolicy Bypass -File $env:USERPROFILE\dotfiles\install.ps1
 ```
+
+## CLIツール管理
+Scoopを利用して管理します。
+
+### 初回インストール時
+```powershell
+scoop import apps.json
+```
+
+### パッケージ追加時
+JSONファイルをアップデートします。
+```powershell
+scoop export > ~/dotfiles/scoop.json
+```
+```nu
+scoop export | save -f ~/dotfiles/scoop.json
+```
+

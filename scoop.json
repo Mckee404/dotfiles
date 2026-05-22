@@ -1,0 +1,79 @@
+{
+    "buckets": [
+        {
+            "Name": "main",
+            "Source": "https://github.com/ScoopInstaller/Main.git",
+            "Updated": {
+                "value": "\/Date(1779428665000)\/",
+                "DisplayHint": 2,
+                "DateTime": "2026”N5ŒŽ22“ú 14:44:25"
+            },
+            "Manifests": 1545
+        }
+    ],
+    "apps": [
+        {
+            "Info": "",
+            "Source": "main",
+            "Name": "7zip",
+            "Version": "26.01",
+            "Updated": "\/Date(1779431990736)\/"
+        },
+        {
+            "Info": "",
+            "Source": "main",
+            "Name": "codex",
+            "Version": "0.133.0",
+            "Updated": "\/Date(1779431742862)\/"
+        },
+        {
+            "Info": "",
+            "Source": "main",
+            "Name": "git",
+            "Version": "2.54.0",
+            "Updated": "\/Date(1779432707627)\/"
+        },
+        {
+            "Info": "",
+            "Source": "main",
+            "Name": "lua-language-server",
+            "Version": "3.18.2",
+            "Updated": "\/Date(1777128189912)\/"
+        },
+        {
+            "Info": "",
+            "Source": "main",
+            "Name": "neovim",
+            "Version": "0.12.2",
+            "Updated": "\/Date(1779431287477)\/"
+        },
+        {
+            "Info": "",
+            "Source": "main",
+            "Name": "nodejs",
+            "Version": "26.2.0",
+            "Updated": "\/Date(1779431998018)\/"
+        },
+        {
+            "Info": "",
+            "Source": "main",
+            "Name": "nu",
+            "Version": "0.112.2",
+            "Updated": "\/Date(1779433269688)\/"
+        },
+        {
+            "Info": "",
+            "Source": "main",
+            "Name": "tree-sitter",
+            "Version": "0.26.9",
+            "Updated": "\/Date(1779433013966)\/"
+        },
+        {
+            "Info": "",
+            "Source": "main",
+            "Name": "uv",
+            "Version": "0.11.16",
+            "Updated": "\/Date(1779431806155)\/"
+        }
+    ]
+}
