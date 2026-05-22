@@ -61,5 +61,11 @@ vim.api.nvim_create_user_command(
 )
 
 vim.lsp.enable('lua_ls')
+
+-- python
+vim.lsp.enable('pyright')
+vim.lsp.enable('ruff')
+
+-- typescript
 vim.lsp.enable('vtsls')
 vim.lsp.enable('biome')
