@@ -22,7 +22,8 @@ wezterm.on("gui-startup", function(cmd)
 	window:gui_window():maximize()
 	wezterm.sleep_ms(1)
 
-	local right_pane = main_pane:split({ direction = "Right", size = 0.33 })
+	main_pane:split({ direction = "Right", size = 0.3 })
+	main_pane:split({ direction = "Bottom", size = 0.25 })
 
 	main_pane:activate()
 end)

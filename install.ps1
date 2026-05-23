@@ -16,7 +16,7 @@ $Targets = @(
     @{
         Name = "nushell"
         Source = Join-Path $RepoRoot "nushell"
-        Destination = Join-Path $env:USERPROFILE ".config\nushell"
+        Destination = Join-Path $env:APPDATA "nushell"
     }
 )
 
