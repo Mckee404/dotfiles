@@ -401,6 +401,10 @@ later(function()
     MiniPick.builtin.files({ tool = 'git' })
   end, { desc = 'mini.pick.files' })
 
+  vim.keymap.set('n', '<space>/', function()
+    MiniPick.builtin.grep_live()
+  end, { desc = 'mini.pick.grep_live' })
+
   vim.keymap.set('n', '<space>b', function()
     local wipeout_cur = function()
       vim.api.nvim_buf_delete(MiniPick.get_picker_matches().current.bufnr, {})
@@ -456,6 +460,7 @@ end)
 now(function()
   add({
     source = 'https://github.com/nvim-treesitter/nvim-treesitter',
+    checkout = 'master',
     hooks = {
       post_checkout = function()
         vim.cmd('TSUpdate')
@@ -463,29 +468,22 @@ now(function()
     },
   })
 
-  require('nvim-treesitter').setup({
-    install_dir = vim.fn.stdpath('data') .. '/site',
-  })
+  local parser_install_dir = vim.fn.stdpath('data') .. '/site'
+  vim.opt.runtimepath:prepend(parser_install_dir)
 
-  require('nvim-treesitter').install({
-    'lua',
-    'vim',
-    'javascript',
-    'typescript',
-    'tsx',
-  }):wait(300000)
-
-  vim.api.nvim_create_autocmd('FileType', {
-    pattern = {
+  require('nvim-treesitter.configs').setup({
+    parser_install_dir = parser_install_dir,
+    ensure_installed = {
       'lua',
       'vim',
       'javascript',
       'typescript',
-      'typescriptreact',
+      'tsx',
     },
-    callback = function()
-      pcall(vim.treesitter.start)
-    end,
+    sync_install = false,
+    highlight = {
+      enable = true,
+    },
   })
 end)
 
