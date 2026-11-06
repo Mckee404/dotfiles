@@ -1,6 +1,38 @@
 # dotfiles セットアップ手順
 
-Windows PC でこのリポジトリの設定を各アプリの設定ディレクトリへシンボリックリンクします。
+NixOS-WSLとWindowsの設定を管理します。
+
+## NixOS-WSL
+
+対象はx86_64のNixOS-WSL、ユーザー名は`nixos`です。リポジトリを
+`/home/nixos/dotfiles`へcloneし、以下を実行します。Neovim設定もこの配置を参照します。
+
+```bash
+cd /home/nixos/dotfiles
+sudo bash ./install-nixos.sh
+sudo nixos-rebuild switch --flake /etc/nixos#nixos
+```
+
+`install-nixos.sh`は`/etc/nixos`をこのチェックアウトへのシンボリックリンクにします。
+既存の設定は`/etc/nixos.backup-XXXXXXXX/nixos`へ退避し、そのパスを表示します。
+同じチェックアウトを参照している場合は変更せず終了します。スクリプト自体は
+システムの再構築を行いません。
+
+設定変更後も上記の`nixos-rebuild`で適用します。依存バージョンは`flake.lock`で固定します。
+Windows側のWSL設定、認証情報、Neovimが別途取得するプラグインの状態は含みません。
+
+参照先の確認：
+
+```bash
+readlink -f /etc/nixos
+```
+
+元の設定へ戻す場合は、リンクがこのチェックアウトを指していることを確認してから、
+`sudo unlink /etc/nixos`を実行し、表示された退避先を`sudo mv <退避先>/nixos /etc/nixos`で戻します。
+
+## Windows
+
+Windows PCで各アプリの設定ディレクトリへシンボリックリンクします。
 
 ## 前提
 
